@@ -143,6 +143,8 @@ bs.filtered <- processBismark(files = list.files(path = getwd(), pattern = "*.gz
                               Cov = coverage,
                               mc.cores = cores,
                               per.Group = perGroup)
+  
+print(bs.filtered)  
 
 glue::glue("Saving Rdata...")
 dir.create("RData")
