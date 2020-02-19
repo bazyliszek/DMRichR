@@ -14,7 +14,7 @@
 #' @importFrom parallel mclapply
 #' @importFrom glue glue
 #' @export processBismark
-processBismark <- function(files = list.files(path = getwd(), pattern = "*.txt.gz"),
+processBismark <- function(files = list.files(path = getwd(), pattern = "*.gz"),
                            meta = openxlsx::read.xlsx("sample_info.xlsx", colNames = TRUE) %>% dplyr::mutate_if(is.character, as.factor),
                            testCovar = testCovariate,
                            adjustCovar = NULL,
