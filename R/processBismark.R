@@ -53,6 +53,7 @@ processBismark <- function(files = list.files(path = setwd(myworkingdir), patter
   # }
   
   print(glue::glue("Reading cytosine reports..."))
+  head(files)
   bs <- read.bismark(files = files,
                      #colData = names,
                      rmZeroCov = FALSE,
