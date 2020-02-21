@@ -133,8 +133,12 @@ if(genome == "hg38"){
 }
 
 # Load and process samples ------------------------------------------------
-
-bs.filtered <- processBismark(files = list.files(path = getwd(), pattern = "*.gz"),
+  
+  
+mypath <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_calls/downstream/Transformed'
+#getwd()
+  
+bs.filtered <- processBismark(files = list.files(path = setwd(mypath), pattern = "*.gz"),
                               meta = openxlsx::read.xlsx("sample_info.xlsx", colNames = TRUE) %>%
                                 dplyr::mutate_if(is.character, as.factor),
                               testCovar = testCovariate,
