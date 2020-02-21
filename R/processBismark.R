@@ -17,7 +17,7 @@
 
 
 myworkingdir <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_calls/downstream/Transformed'
-#print(myworkingdir)
+print(myworkingdir)
 
 #path = getwd()
 
