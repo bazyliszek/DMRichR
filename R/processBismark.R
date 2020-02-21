@@ -28,6 +28,7 @@ processBismark <- function(files = list.files(path = getwd(), pattern = "*.gz"),
   print(glue::glue("Selecting files..."))
   files.idx <- pmatch(meta$Name, files)
   files <- files[files.idx]
+  print(files)
   #names <- as.data.frame(gsub( "_.*$","", files[files.idx])) # For colData, but jumbles file order with parallel processing
   #colnames(names) <- "Name"
   #rownames(names) <- names[,1]
