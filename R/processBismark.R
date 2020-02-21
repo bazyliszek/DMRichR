@@ -21,7 +21,7 @@ myworkingdir <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_cal
 
 #path = getwd()
 
-processBismark <- function(files = list.files(path = setwd(myworkingdir), pattern = "*.gz"),
+processBismark <- function(files = list.files(path = setwd(myworkingdir), pattern = "*.txt.gz"),
                            meta = openxlsx::read.xlsx("sample_info.xlsx", colNames = TRUE) %>% dplyr::mutate_if(is.character, as.factor),
                            testCovar = testCovariate,
                            adjustCovar = NULL,
