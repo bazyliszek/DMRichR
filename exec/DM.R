@@ -137,6 +137,7 @@ if(genome == "hg38"){
   
 mypath <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_calls/downstream/Transformed'
 #getwd()
+print(mypath)
   
 bs.filtered <- processBismark(files = list.files(path = setwd(mypath), pattern = "*.txt.gz"),
                               meta = openxlsx::read.xlsx("sample_info.xlsx", colNames = TRUE) %>%
