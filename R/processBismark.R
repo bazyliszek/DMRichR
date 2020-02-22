@@ -16,12 +16,12 @@
 #' @export processBismark
 
 
-myworkingdir <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_calls/downstream/Transformed'
-setwd(myworkingdir)
+#myworkingdir <- '/WORKING/projects/DNAm_testis/Sverige01/bismark_methylation_calls/downstream/Transformed'
+#setwd(myworkingdir)
 
 #path = getwd()
 
-processBismark <- function(files = list.files(pattern = "*.txt.gz"),
+processBismark <- function(files = list.files(path=getwd(), pattern = "*.txt.gz"),
                            meta = openxlsx::read.xlsx("sample_info.xlsx", colNames = TRUE) %>% dplyr::mutate_if(is.character, as.factor),
                            testCovar = testCovariate,
                            adjustCovar = NULL,
@@ -53,7 +53,7 @@ processBismark <- function(files = list.files(pattern = "*.txt.gz"),
   # }
   
   print(glue::glue("Reading cytosine reports..."))
-  head(files)
+  #head(files)
   bs <- read.bismark(files = files,
                      #colData = names,
                      rmZeroCov = FALSE,
@@ -65,7 +65,7 @@ processBismark <- function(files = list.files(pattern = "*.txt.gz"),
   print(glue::glue("Assigning sample metadata with {testCovar} as factor of interest..."))
   sampleNames(bs) <- gsub( "_.*$","", sampleNames(bs))
   meta <- meta[order(match(meta[,1],sampleNames(bs))),]
-  stopifnot(sampleNames(bs) == as.character(meta$Name))
+  #stopifnot(sampleNames(bs) == as.character(meta$Name))
   pData(bs) <- cbind(pData(bs), meta[2:length(meta)])
   print(pData(bs))
   
